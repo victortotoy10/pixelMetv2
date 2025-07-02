@@ -1,0 +1,28 @@
+{
+  "terrain": "galapagos-small",
+  "background": "/assets/tilesets/output_tileset.png",
+  "npcs": [
+    {
+      "name": "Biólogo",
+      "sprite": "/assets/npcs/biologo.png",
+      "x": 64,
+      "y": 120,
+      "dialog": "¡Hola! ¿Listo para investigar?"
+    },
+    {
+      "name": "Guardaparque",
+      "sprite": "/assets/npcs/guardaparque.png",
+      "x": 200,
+      "y": 80,
+      "dialog": "Recuerda: Galápagos es Patrimonio Natural."
+    }
+  ],
+  "objects": [
+    {
+      "type": "microscope",
+      "sprite": "/assets/sprites/microscope.png",
+      "x": 120,
+      "y": 150
+    }
+  ]
+}

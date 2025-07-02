@@ -1,0 +1,97 @@
+<!-- /pages/intro.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>PixelMet</title>
+    <style>
+        /* Importa la fuente PixelOperator-Bold */
+        @font-face {
+            font-family: 'PixelOperatorBold';
+            src: url('/fonts/PixelOperator-Bold.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: #2ba2f1;
+            /* color de respaldo si la imagen no carga */
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* clave: cubre toda la pantalla */
+            image-rendering: pixelated;
+            /* mantiene look retro */
+        }
+
+#playBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;          /* más ancho para texto en bloque */
+  height: 150px;         /* más alto */
+  background: linear-gradient(to bottom, #00FFFF, #0055FF); /* degrade azul brillante */
+  border: 8px solid #000000; /* borde negro grueso */
+  color: #FFFFFF;        /* texto blanco principal */
+  font-family: 'PixelOperatorBold', monospace;
+  font-size: 80px;       /* texto grande como el logo */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  image-rendering: pixelated;
+  cursor: pointer;
+  outline: none;
+  transition: none;
+  /* efecto de contorno con múltiples sombras: */
+  text-shadow:
+    -4px -4px 0 #000,  
+     4px -4px 0 #000,
+    -4px  4px 0 #000,
+     4px  4px 0 #000,
+    -2px -2px 0 #FFF,
+     2px -2px 0 #FFF,
+    -2px  2px 0 #FFF,
+     2px  2px 0 #FFF;
+}
+
+#playBtn:active {
+  background: linear-gradient(to bottom, #FF6600, #FF0000); /* degradado rojo/naranja en clic */
+  border-color: #8B0000;     /* rojo oscuro intenso */
+  color: #FFFFFF;            /* texto blanco */
+}
+
+    </style>
+</head>
+
+<body>
+    <img src="/img/pixelmet_title.jpg" alt="PixelMet Intro">
+    <button id="playBtn">PLAY</button>
+
+    <script type="module">
+        document.getElementById('playBtn').addEventListener('click', () => {
+            window.location.href = "/login";
+        });
+    </script>
+</body>
+
+</html>

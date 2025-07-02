@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+}
+
+.game-container {
+  position: relative;
+  width: 640px;
+  height: 480px;
+}
+
+canvas.pixelart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  image-rendering: pixelated; /* Asegura bordes definidos en el pixel art */
+}
+
+.floor {
+  background-color: #73D369; /* Color de fondo para el piso */
+}
+
+.sprites {
+  mix-blend-mode: normal; /* Puedes ajustar el modo de fusión de los sprites */
+}
