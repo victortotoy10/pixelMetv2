@@ -9,21 +9,56 @@ body {
 
 .game-container {
   position: relative;
-  width: 640px;
-  height: 480px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 canvas.pixelart {
   position: absolute;
   top: 0;
   left: 0;
-  image-rendering: pixelated; /* Asegura bordes definidos en el pixel art */
-}
-
-.floor {
-  background-color: #73D369; /* Color de fondo para el piso */
+  width: 100vw;
+  height: 100vh;
+  image-rendering: pixelated;
 }
 
 .sprites {
   mix-blend-mode: normal; /* Puedes ajustar el modo de fusión de los sprites */
+}
+
+
+
+/* Variables CSS para el tamaño de píxeles */
+:root{
+  --pixel-size: 15;
+}
+
+
+.Personaje{
+  width: calc(20px*var(--pixel-size));
+  height: calc(20px*var(--pixel-size));
+  overflow: hidden;
+  position: absolute;
+  margin: 4em auto;
+}
+.personajeSprite{
+
+  animation: movePersonaje 1s steps(8) infinite;
+  width: calc(200px*var(--pixel-size));
+  position: absolute;
+}
+
+.pixelart{
+  image-rendering: pixelated;
+}
+
+
+@keyframes movePersonaje {
+  from {
+    transform: translate3d(0px,0,0);
+  }
+  to {
+    transform: translate3d(-100%,0,0);
+  }
 }
