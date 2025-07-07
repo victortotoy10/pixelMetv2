@@ -31,15 +31,16 @@ canvas.pixelart {
 
 /* Variables CSS para el tamaño de píxeles */
 :root{
-  --pixel-size: 6; /* Variable CSS para definir el tamaño base de los píxeles */
+  --pixel-size: 4; /* Variable CSS para definir el tamaño base de los píxeles */
 }
 
 /* Contenedor del personaje principal */
 .Personaje{
-  width: calc(50px*var(--pixel-size)); /* Ancho del personaje basado en el tamaño de píxel */
-  height: calc(30px*var(--pixel-size)); /* Alto del personaje basado en el tamaño de píxel */
-  overflow: hidden;/*Oculta cualquier contenido que sobresalga */
+  width: calc(35px*var(--pixel-size)); /* Ancho del personaje basado en el tamaño de píxel */
+  height: calc(13px*var(--pixel-size)); /* Alto del personaje basado en el tamaño de píxel */
+ overflow: hidden;/*Oculta cualquier contenido que sobresalga */
   position: absolute; /* Posiciona el personaje de forma absoluta */
+  
   
   margin: 1em auto; /* Margen superior e inferior de 4em, centrado horizontalmente */
 }
