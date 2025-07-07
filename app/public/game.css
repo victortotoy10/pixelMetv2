@@ -1,79 +1,10 @@
-body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #000;
-}
-
-.game-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-canvas.pixelart {
+#canvas1{
+  border: 5px solid black;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  image-rendering: pixelated;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+
 }
-
-.sprites {
-  mix-blend-mode: normal; /* Puedes ajustar el modo de fusión de los sprites */
-}
-
-
-
-/* Variables CSS para el tamaño de píxeles */
-:root{
-  --pixel-size: 4; /* Variable CSS para definir el tamaño base de los píxeles */
-}
-
-/* Contenedor del personaje principal */
-.Personaje{
-  width: calc(35px*var(--pixel-size)); /* Ancho del personaje basado en el tamaño de píxel */
-  height: calc(13px*var(--pixel-size)); /* Alto del personaje basado en el tamaño de píxel */
- overflow: hidden;/*Oculta cualquier contenido que sobresalga */
-  position: absolute; /* Posiciona el personaje de forma absoluta */
-  
-  
-  margin: 1em auto; /* Margen superior e inferior de 4em, centrado horizontalmente */
-}
-
-/* Sprite del personaje */
-.personajeSprite{
-  animation: movePersonaje 1s steps(8) infinite; /* Animación para mover el sprite en 8 pasos */
-  width: calc(500px*var(--pixel-size)); /* Ancho total del sprite (para animación de frames) */
-  
-  }
-
-
-
-
-/* Renderizado pixelado para imágenes */
-.pixelart{
-  image-rendering: pixelated; /* Hace que las imágenes se vean pixeladas */
-}
-
- .face-down {
-   position: calc(-20px * var(--pixel-size));
-} 
-
-
-
-/* Animación para mover el personaje */
-@keyframes movePersonaje {
-  from {
-    transform: translate3d(0px,0,0); /* Comienza en la posición original */
-
-  }
-  to {
-    transform: translate3d(-100%,0,0); /* Se mueve completamente hacia la izquierda */
-  }
-}
-
