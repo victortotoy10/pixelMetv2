@@ -79,7 +79,7 @@ window.addEventListener('DOMContentLoaded', actualizarTodosLosEstadosGlobal);
 
 // --- Lógica para el botón "Iniciar sesión" (redirige a login.html) ---
 document.getElementById("skip")?.addEventListener("click", () => {
-    window.location.href = 'login.html'; // Redirige a la página de login
+    window.location.href = '/login'; // Redirige a la página de login
 });
 
 

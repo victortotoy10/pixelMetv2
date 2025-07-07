@@ -16,7 +16,7 @@ floorCanvas.width = BASE_CANVAS_WIDTH;
 floorCanvas.height = BASE_CANVAS_HEIGHT;
 floorCtx.imageSmoothingEnabled = false;
 
-// === Imagen del tileset (terreno) ===
+// === Imagen de fondo ===
 let backgroundImage = null;
 
 // === Inicia el juego cargando el nivel ===
@@ -29,45 +29,39 @@ function startGame(levelName) {
     .catch(err => console.error(err));
 }
 
-// === Cargar imagen del tileset de terreno ===
-function loadBackground(tilesetUrl) {
+// === Cargar imagen de fondo ===
+function loadBackground(backgroundUrl) {
   backgroundImage = new Image();
-  backgroundImage.src = tilesetUrl;
+  backgroundImage.src = backgroundUrl;
   backgroundImage.onload = () => {
-    console.log("Tileset loaded successfully:", tilesetUrl);
-    drawChessBoard();
+    console.log("Background image loaded successfully:", backgroundUrl);
+    drawBackground();
   };
   backgroundImage.onerror = () => {
-    console.error("Failed to load tileset:", tilesetUrl);
+    console.error("Failed to load background image:", backgroundUrl);
   };
 }
 
-// === Dibujar el terreno como tablero de ajedrez ===
-// Recorre el canvas pintando tiles oscuros y claros alternados
-function drawChessBoard() {
-  for (let y = 0; y < Math.ceil(BASE_CANVAS_HEIGHT / TILE_SIZE); y++) {
-    for (let x = 0; x < Math.ceil(BASE_CANVAS_WIDTH / TILE_SIZE); x++) {
-      const isDark = (x + y) % 2 === 0;
-      const srcX = isDark ? 37 : 20; // Posiciones en el tileset para tile oscuro/claro
-      const srcY = 20;
-      floorCtx.drawImage(
-        backgroundImage,
-        srcX, srcY,
-        BASE_TILE_SIZE, BASE_TILE_SIZE,
-        x * TILE_SIZE, y * TILE_SIZE,
-        TILE_SIZE, TILE_SIZE
-      );
-    }
-  }
+// === Dibujar la imagen de fondo ===
+function drawBackground() {
+  // Limpiar el canvas
+  floorCtx.clearRect(0, 0, BASE_CANVAS_WIDTH, BASE_CANVAS_HEIGHT);
+  
+  // Dibujar la imagen de fondo escalada para cubrir todo el canvas
+  floorCtx.drawImage(
+    backgroundImage,
+    0, 0,
+    BASE_CANVAS_WIDTH, BASE_CANVAS_HEIGHT
+  );
 }
 
-// === Redimensionar canvas y volver a dibujar terreno ===
+// === Redimensionar canvas y volver a dibujar fondo ===
 function resizeGame() {
   BASE_CANVAS_WIDTH = window.innerWidth;
   BASE_CANVAS_HEIGHT = window.innerHeight;
   floorCanvas.width = BASE_CANVAS_WIDTH;
   floorCanvas.height = BASE_CANVAS_HEIGHT;
-  drawChessBoard();
+  drawBackground();
 }
 
 window.addEventListener('resize', resizeGame);

@@ -31,34 +31,48 @@ canvas.pixelart {
 
 /* Variables CSS para el tamaño de píxeles */
 :root{
-  --pixel-size: 15;
+  --pixel-size: 6; /* Variable CSS para definir el tamaño base de los píxeles */
 }
 
-
+/* Contenedor del personaje principal */
 .Personaje{
-  width: calc(20px*var(--pixel-size));
-  height: calc(20px*var(--pixel-size));
-  overflow: hidden;
-  position: absolute;
-  margin: 4em auto;
+  width: calc(50px*var(--pixel-size)); /* Ancho del personaje basado en el tamaño de píxel */
+  height: calc(30px*var(--pixel-size)); /* Alto del personaje basado en el tamaño de píxel */
+  overflow: hidden;/*Oculta cualquier contenido que sobresalga */
+  position: absolute; /* Posiciona el personaje de forma absoluta */
+  
+  margin: 1em auto; /* Margen superior e inferior de 4em, centrado horizontalmente */
 }
+
+/* Sprite del personaje */
 .personajeSprite{
+  animation: movePersonaje 1s steps(8) infinite; /* Animación para mover el sprite en 8 pasos */
+  width: calc(500px*var(--pixel-size)); /* Ancho total del sprite (para animación de frames) */
+  
+  }
 
-  animation: movePersonaje 1s steps(8) infinite;
-  width: calc(200px*var(--pixel-size));
-  position: absolute;
-}
 
+
+
+/* Renderizado pixelado para imágenes */
 .pixelart{
-  image-rendering: pixelated;
+  image-rendering: pixelated; /* Hace que las imágenes se vean pixeladas */
 }
 
+ .face-down {
+   position: calc(-20px * var(--pixel-size));
+} 
 
+
+
+/* Animación para mover el personaje */
 @keyframes movePersonaje {
   from {
-    transform: translate3d(0px,0,0);
+    transform: translate3d(0px,0,0); /* Comienza en la posición original */
+
   }
   to {
-    transform: translate3d(-100%,0,0);
+    transform: translate3d(-100%,0,0); /* Se mueve completamente hacia la izquierda */
   }
 }
+
